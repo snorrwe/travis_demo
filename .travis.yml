@@ -1,3 +1,5 @@
+sudo: false
+dist: trusty
 script:
   - echo $MYENV
 env:
@@ -5,15 +7,15 @@ env:
   - MYENV = 2
 jobs:
   include:
-    stage: deploy
+    - stage: deploy
       script: 
       - echo Deploying!
       - echo $TRAVIS_TAG > result.txt
       deploy:
         - provider: releases
-        api_key:
-          secure: Lo2iCLu3iXPZ/MbMJxE9zliok80AwuLQMofoEFoZL2ybscB1uDKpgENhMrsNR4nkAFi3lhCcW5Ml8wTe8gcOTWMnhaxjGSKa40QeIlssWpNkks+xPxQcF9TAXR06ADfYYFZ4sxo+4eNM5gCPGoAX7P4LYBGW5kub6rEL7676liLvVfI+nIBm0TAOyRX1sJjoXye70VvwLMl++NssdfbJxSdQjdJ66AEf5LSQOkcuu4WrskHYLxlkmZvNXIwjhyXgPZIsUKnqiBHmEA6gYOSEZxW7jTbxkw/hkOQsWok63L8UX6BQfSFBwYGMBmEF6vh0dt38NmkT2V+h9UvNbLh1rrjzWnNUoeRqTPzT5PAMWshx0IFXPYgcstwnXQEzNo4O0rp1+MYB7IFcwfRLFa8+E/w9nqk5Kw8de4+60TRAYwcrrh0reHsUYn+Ib9CAthXVuSqBWf33BV8QBIVMy35kxSPhOFgDd79Mi/R+akV9V20/KPxivYvKbr2n2MFk6gciGcXwNXQXM+Tl+QMnmYNmF9/r3EZfly/2AbuI60+nrY5fgbTBmpHf0ZbB8sX42+nCMN+IY1fqzBZcG3//JOiWULMjhnY/X0Fk+Eyo+16iCgWFNYEIQuy5/Bc05UKx59L0hCPuP/UGyjIjEsLuGqUsCse1CaprwW2hauOjooN9EEE=
-        file: result.txt
-        skip_cleanup: true
-        on:
-          tags: true
+          api_key:
+            secure: Lo2iCLu3iXPZ/MbMJxE9zliok80AwuLQMofoEFoZL2ybscB1uDKpgENhMrsNR4nkAFi3lhCcW5Ml8wTe8gcOTWMnhaxjGSKa40QeIlssWpNkks+xPxQcF9TAXR06ADfYYFZ4sxo+4eNM5gCPGoAX7P4LYBGW5kub6rEL7676liLvVfI+nIBm0TAOyRX1sJjoXye70VvwLMl++NssdfbJxSdQjdJ66AEf5LSQOkcuu4WrskHYLxlkmZvNXIwjhyXgPZIsUKnqiBHmEA6gYOSEZxW7jTbxkw/hkOQsWok63L8UX6BQfSFBwYGMBmEF6vh0dt38NmkT2V+h9UvNbLh1rrjzWnNUoeRqTPzT5PAMWshx0IFXPYgcstwnXQEzNo4O0rp1+MYB7IFcwfRLFa8+E/w9nqk5Kw8de4+60TRAYwcrrh0reHsUYn+Ib9CAthXVuSqBWf33BV8QBIVMy35kxSPhOFgDd79Mi/R+akV9V20/KPxivYvKbr2n2MFk6gciGcXwNXQXM+Tl+QMnmYNmF9/r3EZfly/2AbuI60+nrY5fgbTBmpHf0ZbB8sX42+nCMN+IY1fqzBZcG3//JOiWULMjhnY/X0Fk+Eyo+16iCgWFNYEIQuy5/Bc05UKx59L0hCPuP/UGyjIjEsLuGqUsCse1CaprwW2hauOjooN9EEE=
+          file: result.txt
+          skip_cleanup: true
+          on:
+            tags: true
