@@ -1,0 +1,19 @@
+script:
+  - echo $MYENV
+env:
+  - MYENV = 1
+  - MYENV = 2
+jobs:
+  include:
+    stage: deploy:
+      script: 
+      - echo Deploying!
+      - echo $TRAVIS_TAG > result.txt
+      deploy:
+        - provider: releases
+        api_key:
+          secure:
+        file: result.txt
+        skip_cleanup: true
+        on:
+          tags: true
