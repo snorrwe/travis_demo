@@ -5,7 +5,7 @@ env:
   - MYENV = 2
 jobs:
   include:
-    stage: deploy:
+    stage: deploy
       script: 
       - echo Deploying!
       - echo $TRAVIS_TAG > result.txt
