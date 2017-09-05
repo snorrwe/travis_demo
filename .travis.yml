@@ -1,10 +1,10 @@
 sudo: false
 dist: trusty
-script:
-  - echo $MYENV
 env:
   - MYENV = 1
   - MYENV = 2
+script:
+  - echo $MYENV
 jobs:
   include:
     - stage: deploy
